@@ -7,6 +7,8 @@ import { deleteFileOnError } from "../middlewares/delete-file-on-error.js";
 
 const router = Router()
 
-router.post("/register", uploadProfilePicture.single("profilePicture"), registerValidator, deleteFileOnError, register)
+router.post("/register", 
+      uploadProfilePicture.single("profilePicture"), 
+      registerValidator, deleteFileOnError, register)
 
 export default router
