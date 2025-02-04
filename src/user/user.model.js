@@ -46,17 +46,15 @@ const userSchema = Schema({
     }
 },
 {
-    versionkey: false,
+    versionKey: false,
     timeStamps: true
 })
 
-userSchema./**
- * 
- */
-user.methods.toJSON = function() {
-    const{password, id, ...user} = this.toObject()
-    user.uid = __di
-    return usuario
+
+userSchema.methods.toJSON = function() {
+    const{ password, id, ...user } = this.toObject()
+    user.uid = _di
+    return user
     
 }
 

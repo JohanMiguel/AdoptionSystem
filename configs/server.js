@@ -6,8 +6,9 @@ import helmet from 'helmet'
 import morgan from 'morgan'
 import { dbConnection } from './mongo.js'
 import authRoutes from "../src/auth/auth.routes.js"
+import userRoutes from "../src/user/user.routes.js"
+
 import apiLimiter from '../src/middlewares/validar-cant-peticiones.js'
-import userRouter from '../src/user/user.controller.js'
 
 
 const middlewares = (app) =>{

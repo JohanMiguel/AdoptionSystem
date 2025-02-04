@@ -1,7 +1,8 @@
 import { body, param } from "express-validator";
-import { existeEmail, existeUsername, userExiste } from "../helpers/db-validators.js";
+import { existeEmail, existeUsername, userExists } from "../helpers/db-validators.js";
 import { validarCampos } from "./validar-campos.js";
 import { deleteFileOnError } from "./delete-file-on-error.js";
+
 
 export const registerValidator = [
     body("name", "El nombre es obligatorio").not().isEmpty(),
@@ -34,7 +35,7 @@ export const loginValidator = [
 
 export const getUserByIdValidator = [
     param("uid").isMongoId().withMessage("No es un ID valido"),
-    param("uid").custom(userExiste),
+    param("uid").custom(userExists),
     validarCampos,
     deleteFileOnError
 ]
