@@ -56,8 +56,32 @@ export const getUsers = async (req, res) => {
 }
 }
 
+
+/*Funcion para eliminar un usuario */
+export const deleteUser = async (req, res) => {
+    try{
+        const { uid } = req. params
+
+        const user =  await User.findByIdAndUpdate(uid, {status: false}, {new: true})
+
+        return res.status(200).json({
+            success: true,
+            message: "Usuario Eliminado",
+            user
+        })
+
+    }catch(err){
+        return res.status(500).json({
+            success: false,
+            message: "Error al eliminar el usuario",
+            error: err.message
+        })
+    }
+}
+
+
 /*Para Actualizar la PASSWOD */
-export const updtePassword = async (req, res) => {
+export const updatePassword = async (req, res) => {
     try{
         const { uid } = req.params
         const { newPassword } = req.body
