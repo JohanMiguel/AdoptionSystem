@@ -40,7 +40,13 @@ export const getUserByIdValidator = [
     deleteFileOnError
 ]
 
-
+/*Elimnar un usuario por Id */
+export const deleteUserValidator = [
+    param("uid").isMongoId().withMessage("No es un ID válido"),
+    param("uid").custom(userExists),
+    validarCampos,
+    deleteFileOnError
+]
 
 /* Para Actualizar un usuario */
 export const updatePasswordValidator = [
